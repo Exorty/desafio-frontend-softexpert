@@ -1,0 +1,152 @@
+body, html {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.form-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+.form-centralizado {
+  width: 100%;
+  max-width: 600px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.form-control {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+.btn, .btn-adicionar-item {
+  padding: 10px 20px;
+  background-color: #053972;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  display: inline-block;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.btn:hover, .btn-adicionar-item:hover {
+  background-color: white;
+  color: black;
+  box-shadow: 20 20px 20px rgba(0,0,0,0.15);
+}
+
+.form-actions, .item-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.form-actions .btn {
+  flex: 1;
+  margin: 0 10px;
+}
+
+.form-actions .btn:first-child {
+  margin-left: 0;
+}
+
+.form-actions .btn:last-child {
+  margin-right: 0;
+}
+
+.item-actions .btn-adicionar-item {
+  margin-top: 10px;
+  width: 100%;
+}
+
+.pedidos {
+  margin-bottom: 20px;
+}
+
+.pedido, .itens-pedido {
+  margin-bottom: 10px;
+}
+
+.item-pedido {
+  margin-bottom: 10px;
+}
+
+.pedidos-enviados {
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+}
+
+.pedidos-enviados h2{
+  display: flex;
+  justify-content: center;
+  color: #000000;
+  margin-bottom: 20px;
+}
+
+.pedidos-enviados h2, .pedidos-enviados h3 {
+  color: #000000;
+  margin-bottom: 20px;
+}
+
+.pedidos-enviados ul {
+  list-style-type: none;
+  padding: 0;
+  margin-bottom: 10px;
+}
+
+.pedidos-enviados ul li {
+  background-color: #e9ecef;
+  border: 1px solid #dee2e6;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 5px;
+}
+
+.pedidos-enviados p {
+  font-weight: bold;
+}
+
+.pedidos-enviados a {
+  color: #28a745;
+  text-decoration: none;
+}
+
+.pedidos-enviados a:hover {
+  text-decoration: underline;
+}
+
+.pedidos-enviados .btn {
+  width: auto;
+  margin-top: 20px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}

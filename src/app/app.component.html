@@ -1,0 +1,85 @@
+<div *ngIf="!mostrarPedidosEnviados; else pedidosEnviadosTemplate">
+  <div class="form-wrapper">
+    <form class="form-centralizado" (ngSubmit)="processarPedido()">
+      <div class="form-group">
+        <label for="tipoEstabelecimento">Tipo de Estabelecimento:</label>
+        <select id="tipoEstabelecimento" name="tipoEstabelecimento" [(ngModel)]="pedidoData.tipoEstabelecimentoEnum" (change)="ajustarCamposPorTipoEstabelecimento()" class="form-control" required>
+          <option value="" disabled selected>Selecione</option>
+          <option value="FISICO">Físico</option>
+          <option value="VIRTUAL">Virtual</option>
+        </select>
+      </div>
+
+      <div class="form-group" *ngIf="pedidoData.tipoEstabelecimentoEnum === 'VIRTUAL'">
+        <label for="descontoEmReais">Desconto em Reais:</label>
+        <input type="number" id="descontoEmReais" name="descontoEmReais" [(ngModel)]="pedidoData.descontoEmReais" class="form-control" required>
+      </div>
+
+      <div class="form-group" *ngIf="pedidoData.tipoEstabelecimentoEnum === 'FISICO'">
+        <label for="acrescimoEmPorcentagem">Acréscimo do Garçom (em %):</label>
+        <input type="number" id="acrescimoEmPorcentagem" name="acrescimoEmPorcentagem" [(ngModel)]="pedidoData.acrescimoEmPorcentagem" class="form-control" min="0" max="100" required>
+      </div>
+
+      <div class="form-group" *ngIf="pedidoData.tipoEstabelecimentoEnum === 'VIRTUAL'">
+        <label for="valorEntrega">Valor da Entrega:</label>
+        <input type="number" id="valorEntrega" name="valorEntrega" [(ngModel)]="pedidoData.valorEntrega" class="form-control" required>
+      </div>
+
+      <div class="form-group">
+        <label for="formaPagamento">Forma de Pagamento:</label>
+        <select id="formaPagamento" name="formaPagamento" [(ngModel)]="pedidoData.formaPagamento" class="form-control" required>
+          <option value="" disabled selected>Selecione</option>
+          <option value="PICPAY">PicPay</option>
+        </select>
+      </div>
+
+      <h2>Novos Pedidos</h2>
+
+      <div *ngFor="let pedido of pedidoData.pedidos; let pedidoIndex = index" class="pedidos">
+        <div class="pedido">
+          <label for="nomeResponsavel{{pedidoIndex}}">Nome do Responsável do Pedido {{pedidoIndex + 1}}:</label>
+          <input type="text" id="nomeResponsavel{{pedidoIndex}}" name="nomeResponsavel{{pedidoIndex}}" [(ngModel)]="pedido.nomeResponsavel" class="form-control">
+        </div>
+
+        <h3>Itens do Pedido {{pedidoIndex + 1}}</h3>
+
+        <div *ngFor="let item of pedido.itensPedido; let itemIndex = index" class="itens-pedido">
+          <div class="item-pedido">
+            <label for="descricaoItem{{pedidoIndex}}{{itemIndex}}">Descrição do Item {{itemIndex + 1}}:</label>
+            <input type="text" id="descricaoItem{{pedidoIndex}}{{itemIndex}}" name="descricaoItem{{pedidoIndex}}{{itemIndex}}" [(ngModel)]="item.descricaoItem" class="form-control">
+          </div>
+          <div class="item-pedido">
+            <label for="valorItem{{pedidoIndex}}{{itemIndex}}">Valor do Item {{itemIndex + 1}}:</label>
+            <input type="number" id="valorItem{{pedidoIndex}}{{itemIndex}}" name="valorItem{{pedidoIndex}}{{itemIndex}}" [(ngModel)]="item.valorItem" class="form-control">
+          </div>
+        </div>
+
+        <div class="item-actions">
+          <button type="button" class="btn btn-adicionar-item" (click)="adicionarItem(pedido, pedidoIndex)">Adicionar Novo Item</button>
+        </div>
+      </div>
+
+      <div class="form-actions">
+        <button type="button" class="btn" (click)="adicionarPedido()">Adicionar Novo Pedido</button>
+        <button type="submit" class="btn">Processar Pedido</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<ng-template #pedidosEnviadosTemplate>
+  <div class="pedidos-enviados">
+    <h2>Pedidos Enviados</h2>
+    <div *ngFor="let pedido of pedidosEnviados">
+      <h3>{{ pedido.nomeResponsavel }}</h3>
+      <ul>
+        <li *ngFor="let item of pedido.itensPedido">
+          {{ item.descricaoItem }} - R$ {{ item.valorItem }}
+        </li>
+      </ul>
+      <p>Valor Total: R$ {{ pedido.valorTotal }}</p>
+      <a [href]="pedido.linkPagamento" target="_blank">Link de Pagamento</a>
+    </div>
+    <button class="btn" (click)="voltarAoFormulario()">Voltar</button>
+  </div>
+</ng-template>
