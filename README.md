@@ -33,3 +33,15 @@ Este comando iniciará um contêiner Docker baseado na imagem construída anteri
 Para detalhes sobre a interação com a API do desafio Backend SoftExpert, consulte a documentação disponível através da interface Swagger, acessível no endereço fornecido após a execução do backend.
 
 Repositório do back-end: https://github.com/Exorty/desafio-backend-softexpert
+
+## Imagens do front
+
+1- Tela para preencher os pedidos
+
+<img width="515" alt="image" src="https://github.com/Exorty/desafio-frontend-softexpert/assets/43776020/1957abf4-5f39-4cad-a2a1-a9421c6ee882">
+
+2- Tela do resultado com o link de pagamento
+
+<img width="589" alt="image" src="https://github.com/Exorty/desafio-frontend-softexpert/assets/43776020/6de7cb7c-51c1-40e8-9573-21e9c70ecdba">
+
+
