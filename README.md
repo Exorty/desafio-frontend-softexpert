@@ -32,4 +32,4 @@ Este comando iniciará um contêiner Docker baseado na imagem construída anteri
 ## Documentação   <img src="https://github.com/Exorty/desafio-backend-softexpert/assets/43776020/854d0092-6543-4a8b-8fe6-35cb4f374f46" width="30" height="30">
 Para detalhes sobre a interação com a API do desafio Backend SoftExpert, consulte a documentação disponível através da interface Swagger, acessível no endereço fornecido após a execução do backend.
 
-Repositório do backend: https://github.com/Exorty/desafio-backend-softexpert
+Repositório do back-end: https://github.com/Exorty/desafio-backend-softexpert
